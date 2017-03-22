@@ -27,7 +27,7 @@ class ContentTypes
   constructor: (@book)->
 
   toxml:()->
-    types = xml.create('Types',{version:'1.0',encoding:'UTF-8',standalone:true})
+    types = xml.create('Types',{version:'1.0',encoding:'UTF-8',standalone:true,allowSurrogateChars: true})
     types.att('xmlns','http://schemas.openxmlformats.org/package/2006/content-types')
     types.ele('Override',{PartName:'/xl/theme/theme1.xml',ContentType:'application/vnd.openxmlformats-officedocument.theme+xml'})
     types.ele('Override',{PartName:'/xl/styles.xml',ContentType:'application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml'})
@@ -115,7 +115,7 @@ class SharedStrings
       return @arr.length
 
   toxml: ()->
-    sst = xml.create('sst',{version:'1.0',encoding:'UTF-8',standalone:true})
+    sst = xml.create('sst',{version:'1.0',encoding:'UTF-8',standalone:true,allowSurrogateChars: true})
     sst.att('xmlns','http://schemas.openxmlformats.org/spreadsheetml/2006/main')
     sst.att('count',''+@arr.length)
     sst.att('uniqueCount',''+@arr.length)
